@@ -120,16 +120,22 @@ app.get(`/${redirectURI}`, async (request, response) => {
 })
 
 // Getting the current user
-app.get("/auth/me", (req, res) => {
+
+app.get("/auth/me", (request, response) => {
     try {
-        const decodedToken = jwt.verify(req.cookies[COOKIE_NAME], JWT_SECRET);
-        console.log("decoded", decodedToken);
-        return res.send(decodedToken);
-    } catch (err) {
-        console.log(err);
-        res.send(null);
+        const decodedToken = jwt.verify(request.cookies[COOKIE_NAME], JWT_SECRET);
+        response.send(decodedToken);
+    } catch (error) {
+        console.log("Fetch User Error :", error);
+        response.status(500).send(null);
     }
 });
 
+// Logout
+
+app.post('/logout', (request, response) => {
+    response.clearCookie(COOKIE_NAME, { httpOnly: true });
+    response.status(200).json({ message: 'Logout successful' });
+})
 
 app.listen(port, () => console.log("Server Started"))
