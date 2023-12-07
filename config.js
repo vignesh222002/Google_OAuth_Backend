@@ -1,0 +1,6 @@
+export const GOOGLE_CLIENT_ID = '346809359078-prk1trdkqkcb8gcdghb6kr0qu6ses8qi.apps.googleusercontent.com'
+export const GOOGLE_CLIENT_SECRET = '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'
+export const SERVER_ROOT_URL = 'http://localhost:4000'
+export const UI_ROOT_URL = 'http://localhost:3000'
+export const JWT_SECRET = '51f0eb245f199cb94e1e23b2f0fddeb70ded428b95101c2711cdf32939381e1a524225c152c8bb45e425c51472c1dede87b447f3d472e4dd40f5e8042005ec6f'
+export const COOKIE_NAME = 'auth_token'
